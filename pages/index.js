@@ -1,7 +1,18 @@
+import styled from "styled-components";
+import TreeList from "../components/trees";
+
 export default function HomePage() {
   return (
     <div>
-      <h1>Hello from Next.js</h1>
+      <Heading>Baumliste:</Heading>
+      <TreeList />
     </div>
   );
 }
+
+const Heading = styled.h1`
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  color: yellow;
+  background-color: greenyellow;
+`;
