@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TreeList from "../components/trees";
+import TreeList from "../components/TreeList";
 
 export default function HomePage() {
   return (
