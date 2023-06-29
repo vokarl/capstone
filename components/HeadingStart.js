@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function HomePage() {
+export const HeadingStart = () => {
   return <Heading>Stammholz Sortiertool</Heading>;
-}
+};
 
 const Heading = styled.h1`
   text-align: center;

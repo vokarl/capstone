@@ -1,21 +1,17 @@
 import styled from "styled-components";
+import { allTrees } from "../../resources/TreeArray";
 
-import Link from "next/link";
-import { HeadingStart } from "../components/HeadingStart";
-
-const AddPage = () => {
+const TreeList = () => {
   return (
     <StyledList>
-      <HeadingStart />
-      <p>add tree</p>
-      <Link href="./">
-        <button>+</button>
-      </Link>
+      {allTrees.map((tree) => (
+        <ListItem key={tree.id}>{tree.name}</ListItem>
+      ))}
     </StyledList>
   );
 };
 
-export default AddPage;
+export default TreeList;
 
 const ListItem = styled.li`
   text-align: left;
