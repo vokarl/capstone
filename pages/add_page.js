@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { allTrees } from "../resources/TreeArray";
+
 import Link from "next/link";
+import { HeadingStart } from "../components/HeadingStart";
 
 const AddPage = () => {
   return (
     <StyledList>
-      <Heading>Stammholz sortier Tool</Heading>
+      <HeadingStart />
       <p>add tree</p>
       <Link href="./">
         <button>+</button>
@@ -27,10 +28,4 @@ const ListItem = styled.li`
 
 const StyledList = styled.ul`
   list-style-type: disc;
-`;
-const Heading = styled.h1`
-  text-align: center;
-  font-family: "Courier New", Courier, monospace;
-  color: yellow;
-  background-color: greenyellow;
 `;
