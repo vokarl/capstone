@@ -1,4 +1,4 @@
-import { allTrees } from "@/resources/treearray";
+import allTrees from "@/resources/treearray";
 import styled from "styled-components";
 
 const TreeList = () => {
