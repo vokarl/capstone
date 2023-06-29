@@ -1,5 +1,5 @@
+import { allTrees } from "@/resources/treearray";
 import styled from "styled-components";
-import { allTrees } from "../../resources/treearray.js";
 
 const TreeList = () => {
   return (
