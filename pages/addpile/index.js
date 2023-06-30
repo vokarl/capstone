@@ -6,7 +6,7 @@ const AddPile = () => {
     <StyledList>
       <p>add pile</p>
       <nav>
-        <Link href="/tree-list">
+        <Link href="/treelist">
           <button>+</button>
         </Link>
       </nav>
