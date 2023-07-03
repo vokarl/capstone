@@ -6,7 +6,6 @@ export const HeadingStart = () => {
 
 const Heading = styled.h1`
   text-align: center;
-  font-family: "Courier New", Courier, monospace;
-  color: yellow;
-  background-color: greenyellow;
+  color: yellowgreen;
+  background-color: rgb(54, 89, 0);
 `;
