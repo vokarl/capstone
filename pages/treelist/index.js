@@ -3,8 +3,8 @@ import Link from "next/link";
 const treeTypes = [
   "Eichenstammholz",
   "Buchenstammholz",
-  "Douglasienstammholz",
-  "Fichten - Tannenstammholz",
+  "Douglasien und Lärchenstammholz",
+  "Fichten und Tannenstammholz",
   "Kiefernstammholz",
 ];
 
