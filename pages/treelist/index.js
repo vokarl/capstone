@@ -1,40 +1,34 @@
-import styled from "styled-components";
+import Link from "next/link";
 
-const allTrees = [
-  { id: 0, name: "Eichenstammholz" },
-  { id: 1, name: "Buchenstammholz" },
-  { id: 2, name: "Douglasienstammholz" },
-  { id: 3, name: "Fichten-/Tannestammholz" },
-  { id: 4, name: "Kiefernstammholz" },
+const treeTypes = [
+  "Eichenstammholz",
+  "Buchenstammholz",
+  "Douglasienstammholz",
+  "Fichten - Tannenstammholz",
+  "Kiefernstammholz",
 ];
 
-const StyledList = styled.ul`
-  list-style-type: disc;
-  background-color: black;
-  margin: 30px;
-`;
-const ListItem = styled.li`
-  text-align: left;
-  padding-left: 5rem;
-  padding-top: 2rem;
-
-  color: yellowgreen;
-  background-color: rgb(54, 89, 0);
-`;
-const H1 = styled.h1`
-  text-align: center;
-`;
-const TreeList = () => {
+export default function TreeType() {
   return (
     <>
-      <H1>Baumarten</H1>
-      <StyledList>
-        {allTrees.map((tree) => (
-          <ListItem key={tree.id}>{tree.name}</ListItem>
+      <h1>Baumsortenwahl</h1>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "30px",
+          marginTop: "50px",
+        }}
+      >
+        {treeTypes.map((treeType) => (
+          <Link key={treeType} href={`/sortinglist/${treeType.toLowerCase()}`}>
+            {" "}
+            {/*${} hier einfaches template literal, da die Adresse ein string ist// dann to lowercase- wird im slug mit lower-
+          case verglichen!!*/}
+            {treeType}
+          </Link>
         ))}
-      </StyledList>
+      </div>
     </>
   );
-};
-
-export default TreeList;
+}
