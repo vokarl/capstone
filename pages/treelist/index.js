@@ -1,4 +1,10 @@
 import Link from "next/link";
+import styled from "styled-components";
+const Heading = styled.h1`
+  text-align: center;
+  color: yellowgreen;
+  background-color: rgb(54, 89, 0);
+`;
 
 const treeTypes = [
   "Eichenstammholz",
@@ -11,7 +17,7 @@ const treeTypes = [
 export default function TreeType() {
   return (
     <>
-      <h1>Baumsortenwahl</h1>
+      <Heading>Baumsortenwahl</Heading>
       <div
         style={{
           display: "flex",
