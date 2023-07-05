@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import styled from "styled-components";
 
 const treeData = [
   {
@@ -108,8 +109,6 @@ const treeData = [
   },
 ];
 
-// Was macht useRouter() genau?
-
 export default function DynamicForm() {
   const router = useRouter();
   const treeFromSlug = router.query.slug;
@@ -118,28 +117,14 @@ export default function DynamicForm() {
     return;
   }
 
-  // console.log("treeFromSlug", treeFromSlug);
-
   const currentTree = treeData.find((element) => element.slug === treeFromSlug);
   const attributes = currentTree.attributes;
 
-  // console.log("currentTree", currentTree);
-  // console.log("attributes", attributes);
-
   return (
-    <div style={{ padding: "50px" }}>
+    <StyledDiv>
       <h1>Formular</h1>
-      <Link
-        href="/treelist"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          marginBottom: "5rem",
-        }}
-      >
-        ← zurück
-      </Link>
-      <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <StyledLink href="/treelist">← zurück</StyledLink>
+      <StyledForm>
         {attributes.auswuechse && <div>Auswüchse</div>}
 
         {attributes.aeste && <div>Äste????</div>}
@@ -178,7 +163,26 @@ export default function DynamicForm() {
         )}
         {attributes.abholzigkeit && <div>Abholzigkeit ?</div>}
         {attributes.verfärbung && <div>Verfärbung ?</div>}
-      </form>
-    </div>
+      </StyledForm>
+    </StyledDiv>
   );
 }
+
+const StyledDiv = styled.div`
+  padding: 50px;
+`;
+
+const StyledLink = styled.a`
+  display: flex;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  color: green;
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  color: brown;
+`;

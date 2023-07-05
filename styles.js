@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family:  sans-serif;
     font-weight: 300;
-    background-color: black;
+    
     width: 100vw;
     height: 100vh;
     

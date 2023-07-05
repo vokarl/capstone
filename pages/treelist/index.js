@@ -18,23 +18,20 @@ export default function TreeType() {
   return (
     <>
       <Heading>Baumsortenwahl</Heading>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "30px",
-          marginTop: "50px",
-        }}
-      >
+      <StyledDiv>
         {treeTypes.map((treeType) => (
           <Link key={treeType} href={`/sortinglist/${treeType.toLowerCase()}`}>
-            {" "}
-            {/*${} hier einfaches template literal, da die Adresse ein string ist// dann to lowercase- wird im slug mit lower-
-          case verglichen!!*/}
             {treeType}
           </Link>
         ))}
-      </div>
+      </StyledDiv>
     </>
   );
 }
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+`;
