@@ -117,49 +117,51 @@ export default function DynamicForm() {
   const currentTree = treeData.find((element) => element.slug === treeFromSlug);
   const attributes = currentTree.attributes;
 
+  let inputNumber = 1;
+
+  const renderInputField = (label) => {
+    const inputId = `input$(inputNumber)`;
+    inputNumber++;
+    return (
+      <div>
+        <label htmlFor={inputId}>{label}</label>
+        <input type="text" name={inputId} id={inputId} />
+      </div>
+    );
+  };
+
   return (
     <div>
       <Heading>Formular</Heading>
       <StyledLink href="/treelist">← zurück</StyledLink>
       <StyledForm>
-        {attributes.auswuechse && <div>Auswüchse</div>}
+        {attributes.auswuechse && renderInputField("Auswüchse ?")}
+        {attributes.wasserreiser && renderInputField("Wasserreiser vorhanden?")}
+        {attributes.drehwuchs && renderInputField("Drehwuchs?")}
+        {attributes.mondring && renderInputField("Mondring ?")}
+        {attributes.einfachekrümmung && renderInputField("Einfache Krümmung?")}
+        {attributes.sternriss && renderInputField("Sternriss?")}
+        {attributes.frostriss && renderInputField("Frostriss?")}
+        {attributes.ringrisse && renderInputField("Ringrisse?")}
+        {attributes.insektenfraßgänge && renderInputField("Insektenfraßgänge")}
+        {attributes.fäule && renderInputField("Fäule?")}
+        {attributes.einfacherkernriss && renderInputField("Einfacher Kernriss")}
+        {attributes.durchgehenderkernriss &&
+          renderInputField("Durchgehender Kernriss?")}
+        {attributes.weißfäule && renderInputField("Weißfäule")}
+        {attributes.rotkern && renderInputField("Rotkern ?")}
+        {attributes.spritzkern && renderInputField("Spritzkern ?")}
+        {attributes.schlagschaden && renderInputField("Schlagschaden ?")}
+        {attributes.rindenschaeden && renderInputField("Rindenschäden ?")}
+        {attributes.weichfäule && renderInputField("Weichfäule ?")}
+        {attributes.durchsnittlichejahrringbreite &&
+          renderInputField("Durchschn. Jahrringbreite?")}
+        {attributes.drehwuchs && renderInputField("Drehwuchs? (in cm)")}
+        {attributes.exzentritätmarkröhre &&
+          renderInputField("Exzentrische Markröhre ?")}
 
-        {attributes.aeste && <div>Äste????</div>}
-        {attributes.wasserreiser && <div>Wasserreiser</div>}
-
-        {attributes.drehwuchs && <div>Drehwuchs (cm)</div>}
-        {attributes.mondring && <div>Mondring ?</div>}
-        {attributes.einfachekrümmung && <div>Einfache Krümmung ?</div>}
-
-        {attributes.sternriss && <div>Sternriss ?</div>}
-
-        {attributes.frostriss && <div>Frostriss ?</div>}
-        {attributes.ringrisse && <div>Ringrisse- / schäle?</div>}
-        {attributes.insektenfraßgänge && <div>Insektenfraßgänge ?</div>}
-        {attributes.fäule && <div>Fäule ?</div>}
-
-        {attributes.einfacherkernriss && <div>Einfacher Kernriss?</div>}
-        {attributes.durchgehenderkernriss && (
-          <div>Durchgehender einfacher Kernriss ?</div>
-        )}
-
-        {attributes.insektenfraßgänge && <div>Insektenfraßgänge ?</div>}
-        {attributes.weißfäule && <div>Weißfäule ?</div>}
-        {attributes.rotkern && <div>Rotkern ?</div>}
-        {attributes.spritzkern && <div>Spritzkern ?</div>}
-        {attributes.schlagschaden && <div>Schlagschaden ?</div>}
-        {attributes.rindenschaeden && <div>Rindenschäen ?</div>}
-        {attributes.weichfäule && <div>Weichfäule ?</div>}
-
-        {attributes.durchsnittlichejahrringbreite && (
-          <div>⌀ Jahrringbreite ?</div>
-        )}
-        {attributes.drehwuchs && <div>Drehwuchs ?</div>}
-        {attributes.exzentritätmarkröhre && (
-          <div>Exzentrität der Markröhre ?</div>
-        )}
-        {attributes.abholzigkeit && <div>Abholzigkeit ?</div>}
-        {attributes.verfärbung && <div>Verfärbung ?</div>}
+        {attributes.abholzigkeit && renderInputField("Abholzigkeit?")}
+        {attributes.verfärbung && renderInputField("Verfärbung?")}
       </StyledForm>
     </div>
   );
@@ -182,4 +184,5 @@ const StyledForm = styled.form`
   flex-direction: column;
   gap: 1.7rem;
   color: brown;
+  padding-left: 2rem;
 `;
