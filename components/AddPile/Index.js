@@ -6,8 +6,13 @@ const StyledButton = styled.button`
   background-color: darkorange;
   padding: 30px;
   font-size: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 const AddPile = () => {

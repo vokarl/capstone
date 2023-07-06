@@ -1,40 +1,37 @@
+import Link from "next/link";
 import styled from "styled-components";
-
-const allTrees = [
-  { id: 0, name: "Eichenstammholz" },
-  { id: 1, name: "Buchenstammholz" },
-  { id: 2, name: "Douglasienstammholz" },
-  { id: 3, name: "Fichten-/Tannestammholz" },
-  { id: 4, name: "Kiefernstammholz" },
-];
-
-const StyledList = styled.ul`
-  list-style-type: disc;
-  background-color: black;
-  margin: 30px;
-`;
-const ListItem = styled.li`
-  text-align: left;
-  padding-left: 5rem;
-  padding-top: 2rem;
-
+const Heading = styled.h1`
+  text-align: center;
   color: yellowgreen;
   background-color: rgb(54, 89, 0);
 `;
-const H1 = styled.h1`
-  text-align: center;
-`;
-const TreeList = () => {
+
+const treeTypes = [
+  "Eichenstammholz",
+  "Buchenstammholz",
+  "Douglasien und Lärchenstammholz",
+  "Fichten und Tannenstammholz",
+  "Kiefernstammholz",
+];
+
+export default function TreeType() {
   return (
     <>
-      <H1>Baumarten</H1>
-      <StyledList>
-        {allTrees.map((tree) => (
-          <ListItem key={tree.id}>{tree.name}</ListItem>
+      <Heading>Baumsortenwahl</Heading>
+      <StyledDiv>
+        {treeTypes.map((treeType) => (
+          <Link key={treeType} href={`/sortinglist/${treeType.toLowerCase()}`}>
+            {treeType}
+          </Link>
         ))}
-      </StyledList>
+      </StyledDiv>
     </>
   );
-};
+}
 
-export default TreeList;
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+`;
