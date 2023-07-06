@@ -55,7 +55,6 @@ const treeData = [
       einfachekrümmung: true,
       abholzigkeit: true,
       mondring: false,
-
       sternriss: false,
       frostriss: false,
       ringrisse: false,
@@ -76,7 +75,6 @@ const treeData = [
       einfachekrümmung: true,
       abholzigkeit: true,
       mondring: false,
-
       sternriss: false,
       frostriss: false,
       ringrisse: false,
@@ -98,7 +96,6 @@ const treeData = [
       einfachekrümmung: true,
       abholzigkeit: true,
       mondring: false,
-
       sternriss: false,
       frostriss: false,
       ringrisse: false,
@@ -121,8 +118,8 @@ export default function DynamicForm() {
   const attributes = currentTree.attributes;
 
   return (
-    <StyledDiv>
-      <h1>Formular</h1>
+    <div>
+      <Heading>Formular</Heading>
       <StyledLink href="/treelist">← zurück</StyledLink>
       <StyledForm>
         {attributes.auswuechse && <div>Auswüchse</div>}
@@ -164,12 +161,12 @@ export default function DynamicForm() {
         {attributes.abholzigkeit && <div>Abholzigkeit ?</div>}
         {attributes.verfärbung && <div>Verfärbung ?</div>}
       </StyledForm>
-    </StyledDiv>
+    </div>
   );
 }
-
-const StyledDiv = styled.div`
-  padding: 50px;
+const Heading = styled.h1`
+  color: yellowgreen;
+  background-color: darkgreen;
 `;
 
 const StyledLink = styled.a`
