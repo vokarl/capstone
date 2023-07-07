@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import renderInputField from "@/components/form/RenderInput";
+import RenderInputField from "../../components/form/RenderInput";
 
 const treeData = [
   {
@@ -114,7 +114,7 @@ export default function DynamicForm() {
   if (!treeFromSlug) {
     return;
   }
-  <renderInputField />;
+
   const currentTree = treeData.find((element) => element.slug === treeFromSlug);
   const attributes = currentTree.attributes;
 
@@ -123,33 +123,47 @@ export default function DynamicForm() {
       <Heading>Sortierung</Heading>
       <StyledLink href="/treelist">← zurück</StyledLink>
       <StyledForm>
-        {attributes.auswuechse && renderInputField("Auswüchse ?")}
-        {attributes.wasserreiser && renderInputField("Wasserreiser vorhanden?")}
-        {attributes.drehwuchs && renderInputField("Drehwuchs?")}
-        {attributes.mondring && renderInputField("Mondring ?")}
-        {attributes.einfachekrümmung && renderInputField("Einfache Krümmung?")}
-        {attributes.sternriss && renderInputField("Sternriss?")}
-        {attributes.frostriss && renderInputField("Frostriss?")}
-        {attributes.ringrisse && renderInputField("Ringrisse?")}
-        {attributes.insektenfraßgänge && renderInputField("Insektenfraßgänge")}
-        {attributes.fäule && renderInputField("Fäule?")}
-        {attributes.einfacherkernriss && renderInputField("Einfacher Kernriss")}
-        {attributes.durchgehenderkernriss &&
-          renderInputField("Durchgehender Kernriss?")}
-        {attributes.weißfäule && renderInputField("Weißfäule")}
-        {attributes.rotkern && renderInputField("Rotkern ?")}
-        {attributes.spritzkern && renderInputField("Spritzkern ?")}
-        {attributes.schlagschaden && renderInputField("Schlagschaden ?")}
-        {attributes.rindenschaeden && renderInputField("Rindenschäden ?")}
-        {attributes.weichfäule && renderInputField("Weichfäule ?")}
-        {attributes.durchsnittlichejahrringbreite &&
-          renderInputField("Durchschn. Jahrringbreite?")}
-        {attributes.drehwuchs && renderInputField("Drehwuchs? (in cm)")}
-        {attributes.exzentritätmarkröhre &&
-          renderInputField("Exzentrische Markröhre ?")}
-
-        {attributes.abholzigkeit && renderInputField("Abholzigkeit?")}
-        {attributes.verfärbung && renderInputField("Verfärbung?")}
+        {attributes.auswuechse && <RenderInputField label="Auswüchse?" />}
+        {attributes.wasserreiser && <RenderInputField label="Wasserreiser?" />}
+        {attributes.drehwuchs && <RenderInputField label="Drehwuchs?" />}
+        {attributes.mondring && <RenderInputField label="Monring?" />}
+        {attributes.einfachekrümmung && (
+          <RenderInputField label="Einfache Krümmung?" />
+        )}
+        {attributes.sternriss && <RenderInputField label="Sternriss?" />}
+        {attributes.frostriss && <RenderInputField label="Frostriss?" />}
+        {attributes.ringrisse && <RenderInputField label="Ringrisse?" />}
+        {attributes.insektenfraßgänge && (
+          <RenderInputField label="Insektenfraßgänge?" />
+        )}
+        {attributes.fäule && <RenderInputField label="Fäule?" />}
+        {attributes.einfacherkernriss && (
+          <RenderInputField label="Einfacher Kernriss?" />
+        )}
+        {attributes.durchgehenderkernriss && (
+          <RenderInputField label="Durchgehender Kernriss?" />
+        )}
+        {attributes.weißfäule && <RenderInputField label="Weißfäule?" />}
+        {attributes.rotkern && <RenderInputField label="Rotkern?" />}
+        {attributes.spritzkern && <RenderInputField label="Spritzkern?" />}
+        {attributes.schlagschaden && (
+          <RenderInputField label="Schlagschaden?" />
+        )}
+        {attributes.rindenschaeden && (
+          <RenderInputField label="Rindenschäden?" />
+        )}
+        {attributes.weichfäule && <RenderInputField label="Weichfäule?" />}
+        {attributes.durchsnittlichejahrringbreite && (
+          <RenderInputField label="Durchsnittliche Jahrringbreite" />
+        )}
+        {attributes.drehwuchs && (
+          <RenderInputField label="Drehwuchs? (in cm)" />
+        )}
+        {attributes.exzentritätmarkröhre && (
+          <RenderInputField label="Exzentrische Markröhre?" />
+        )}
+        {attributes.abholzigkeit && <RenderInputField label="Abholzigkeit?" />}
+        {attributes.verfärbung && <RenderInputField label="Verfärbung?" />}
         <StyledButton>Stamm hinzufügen</StyledButton>
       </StyledForm>
     </>

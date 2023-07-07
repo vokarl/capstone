@@ -1,6 +1,8 @@
+import React from "react";
+
 let inputNumber = 1;
 
-const renderInputField = (label) => {
+const RenderInputField = ({ label }) => {
   const inputId = `input$(inputNumber)`;
   inputNumber++;
   return (
@@ -10,4 +12,4 @@ const renderInputField = (label) => {
     </>
   );
 };
-export default renderInputField;
+export default RenderInputField;
