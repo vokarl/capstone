@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import renderInputField from "@/components/form/RenderInput";
 
 const treeData = [
   {
@@ -113,22 +114,9 @@ export default function DynamicForm() {
   if (!treeFromSlug) {
     return;
   }
-
+  <renderInputField />;
   const currentTree = treeData.find((element) => element.slug === treeFromSlug);
   const attributes = currentTree.attributes;
-
-  let inputNumber = 1;
-
-  const renderInputField = (label) => {
-    const inputId = `input$(inputNumber)`;
-    inputNumber++;
-    return (
-      <p>
-        <label htmlFor={inputId}>{label}</label>
-        <input type="text" name={inputId} id={inputId} />
-      </p>
-    );
-  };
 
   return (
     <>
