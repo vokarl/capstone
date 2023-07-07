@@ -123,16 +123,16 @@ export default function DynamicForm() {
     const inputId = `input$(inputNumber)`;
     inputNumber++;
     return (
-      <div>
+      <p>
         <label htmlFor={inputId}>{label}</label>
         <input type="text" name={inputId} id={inputId} />
-      </div>
+      </p>
     );
   };
 
   return (
-    <div>
-      <Heading>Formular</Heading>
+    <>
+      <Heading>Sortierung</Heading>
       <StyledLink href="/treelist">← zurück</StyledLink>
       <StyledForm>
         {attributes.auswuechse && renderInputField("Auswüchse ?")}
@@ -162,8 +162,9 @@ export default function DynamicForm() {
 
         {attributes.abholzigkeit && renderInputField("Abholzigkeit?")}
         {attributes.verfärbung && renderInputField("Verfärbung?")}
+        <StyledButton>Stamm hinzufügen</StyledButton>
       </StyledForm>
-    </div>
+    </>
   );
 }
 const Heading = styled.h1`
@@ -182,7 +183,17 @@ const StyledLink = styled.a`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1.7rem;
-  color: brown;
+  gap: 0.5rem;
+  color: gray;
   padding-left: 2rem;
+  display: flex;
+`;
+
+const StyledButton = styled.button`
+  border: 2px solid black;
+  background-color: darkorange;
+  padding: 1rem;
+  font-size: 20px;
+
+  align-content: flex-center;
 `;
