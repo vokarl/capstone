@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import RenderInputField from "../../components/form/RenderInput";
 
 const treeData = [
   {
@@ -118,50 +119,54 @@ export default function DynamicForm() {
   const attributes = currentTree.attributes;
 
   return (
-    <div>
-      <Heading>Formular</Heading>
+    <>
+      <Heading>Sortierung</Heading>
       <StyledLink href="/treelist">← zurück</StyledLink>
       <StyledForm>
-        {attributes.auswuechse && <div>Auswüchse</div>}
-
-        {attributes.aeste && <div>Äste????</div>}
-        {attributes.wasserreiser && <div>Wasserreiser</div>}
-
-        {attributes.drehwuchs && <div>Drehwuchs (cm)</div>}
-        {attributes.mondring && <div>Mondring ?</div>}
-        {attributes.einfachekrümmung && <div>Einfache Krümmung ?</div>}
-
-        {attributes.sternriss && <div>Sternriss ?</div>}
-
-        {attributes.frostriss && <div>Frostriss ?</div>}
-        {attributes.ringrisse && <div>Ringrisse- / schäle?</div>}
-        {attributes.insektenfraßgänge && <div>Insektenfraßgänge ?</div>}
-        {attributes.fäule && <div>Fäule ?</div>}
-
-        {attributes.einfacherkernriss && <div>Einfacher Kernriss?</div>}
+        {attributes.auswuechse && <RenderInputField label="Auswüchse?" />}
+        {attributes.wasserreiser && <RenderInputField label="Wasserreiser?" />}
+        {attributes.drehwuchs && <RenderInputField label="Drehwuchs?" />}
+        {attributes.mondring && <RenderInputField label="Monring?" />}
+        {attributes.einfachekrümmung && (
+          <RenderInputField label="Einfache Krümmung?" />
+        )}
+        {attributes.sternriss && <RenderInputField label="Sternriss?" />}
+        {attributes.frostriss && <RenderInputField label="Frostriss?" />}
+        {attributes.ringrisse && <RenderInputField label="Ringrisse?" />}
+        {attributes.insektenfraßgänge && (
+          <RenderInputField label="Insektenfraßgänge?" />
+        )}
+        {attributes.fäule && <RenderInputField label="Fäule?" />}
+        {attributes.einfacherkernriss && (
+          <RenderInputField label="Einfacher Kernriss?" />
+        )}
         {attributes.durchgehenderkernriss && (
-          <div>Durchgehender einfacher Kernriss ?</div>
+          <RenderInputField label="Durchgehender Kernriss?" />
         )}
-
-        {attributes.insektenfraßgänge && <div>Insektenfraßgänge ?</div>}
-        {attributes.weißfäule && <div>Weißfäule ?</div>}
-        {attributes.rotkern && <div>Rotkern ?</div>}
-        {attributes.spritzkern && <div>Spritzkern ?</div>}
-        {attributes.schlagschaden && <div>Schlagschaden ?</div>}
-        {attributes.rindenschaeden && <div>Rindenschäen ?</div>}
-        {attributes.weichfäule && <div>Weichfäule ?</div>}
-
+        {attributes.weißfäule && <RenderInputField label="Weißfäule?" />}
+        {attributes.rotkern && <RenderInputField label="Rotkern?" />}
+        {attributes.spritzkern && <RenderInputField label="Spritzkern?" />}
+        {attributes.schlagschaden && (
+          <RenderInputField label="Schlagschaden?" />
+        )}
+        {attributes.rindenschaeden && (
+          <RenderInputField label="Rindenschäden?" />
+        )}
+        {attributes.weichfäule && <RenderInputField label="Weichfäule?" />}
         {attributes.durchsnittlichejahrringbreite && (
-          <div>⌀ Jahrringbreite ?</div>
+          <RenderInputField label="Durchsnittliche Jahrringbreite" />
         )}
-        {attributes.drehwuchs && <div>Drehwuchs ?</div>}
+        {attributes.drehwuchs && (
+          <RenderInputField label="Drehwuchs? (in cm)" />
+        )}
         {attributes.exzentritätmarkröhre && (
-          <div>Exzentrität der Markröhre ?</div>
+          <RenderInputField label="Exzentrische Markröhre?" />
         )}
-        {attributes.abholzigkeit && <div>Abholzigkeit ?</div>}
-        {attributes.verfärbung && <div>Verfärbung ?</div>}
+        {attributes.abholzigkeit && <RenderInputField label="Abholzigkeit?" />}
+        {attributes.verfärbung && <RenderInputField label="Verfärbung?" />}
+        <StyledButton>Stamm hinzufügen</StyledButton>
       </StyledForm>
-    </div>
+    </>
   );
 }
 const Heading = styled.h1`
@@ -180,6 +185,17 @@ const StyledLink = styled.a`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1.7rem;
-  color: brown;
+  gap: 0.5rem;
+  color: gray;
+  padding-left: 2rem;
+  display: flex;
+`;
+
+const StyledButton = styled.button`
+  border: 2px solid black;
+  background-color: darkorange;
+  padding: 1rem;
+  font-size: 20px;
+
+  align-content: flex-center;
 `;
