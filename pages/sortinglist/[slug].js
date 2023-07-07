@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import RenderInputField from "../../components/form/RenderInput";
+import RenderInputField from "@/components/Form/Index";
 
 const treeData = [
   {
