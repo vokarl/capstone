@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import RenderInputField from "../../components/form/RenderInput";
+import RenderInputField from "@/components/Form/Index";
+import { useState } from "react";
 
 const treeData = [
   {
@@ -110,6 +111,14 @@ const treeData = [
 export default function DynamicForm() {
   const router = useRouter();
   const treeFromSlug = router.query.slug;
+  const [recentTreeData, setRecentTreeData] = useState({});
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    setRecentTreeData(data);
+  }
 
   if (!treeFromSlug) {
     return;
@@ -122,11 +131,11 @@ export default function DynamicForm() {
     <>
       <Heading>Sortierung</Heading>
       <StyledLink href="/treelist">← zurück</StyledLink>
-      <StyledForm>
+      <StyledForm onSubmit={handleSubmit}>
         {attributes.auswuechse && <RenderInputField label="Auswüchse?" />}
         {attributes.wasserreiser && <RenderInputField label="Wasserreiser?" />}
         {attributes.drehwuchs && <RenderInputField label="Drehwuchs?" />}
-        {attributes.mondring && <RenderInputField label="Monring?" />}
+        {attributes.mondring && <RenderInputField label="Mondring?" />}
         {attributes.einfachekrümmung && (
           <RenderInputField label="Einfache Krümmung?" />
         )}
@@ -166,6 +175,17 @@ export default function DynamicForm() {
         {attributes.verfärbung && <RenderInputField label="Verfärbung?" />}
         <StyledButton>Stamm hinzufügen</StyledButton>
       </StyledForm>
+
+      <StyledList>
+        <h2>Ergebnisliste:</h2>
+        {Object.entries(recentTreeData)
+          .filter(([key]) => !key.includes("attributes"))
+          .map(([key, value]) => (
+            <ListItem key={key}>
+              {key}: {value}
+            </ListItem>
+          ))}
+      </StyledList>
     </>
   );
 }
@@ -198,4 +218,14 @@ const StyledButton = styled.button`
   font-size: 20px;
 
   align-content: flex-center;
+`;
+const StyledList = styled.ul`
+  padding: 0;
+  margin: 3rem;
+`;
+
+const ListItem = styled.li`
+  color: blue;
+  list-style-type: circle;
+  margin: 1rem;
 `;
