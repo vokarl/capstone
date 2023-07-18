@@ -1,30 +1,43 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { HeadingStart } from "../HeadingStart";
 
-const StyledButton = styled.button`
-  border: 6px solid black;
-  background-color: darkorange;
-  padding: 30px;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-
-const AddPile = () => {
+const AddPile = ({ onRandomId }) => {
   return (
     <>
-      <p>add pile</p>
+      {" "}
+      <HeadingStart />
+      <StyledContainer>
+        <StyledP>Polter hinzufügen:</StyledP>
 
-      <Link href="/treelist">
-        <StyledButton>+</StyledButton>
-      </Link>
+        <Link onClick={onRandomId} href="/treelist">
+          <StyledLink>+</StyledLink>
+        </Link>
+      </StyledContainer>
     </>
   );
 };
 
 export default AddPile;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem;
+`;
+const StyledP = styled.p`
+  text-align: center;
+  padding: 5rem;
+
+  font-size: 20px;
+`;
+
+const StyledLink = styled.p`
+  background-color: darkorange;
+  padding: 2rem;
+  margin: 0;
+  font-size: 20px;
+  border-radius: 1rem;
+`;
