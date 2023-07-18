@@ -13,8 +13,7 @@ export default function App({ Component, pageProps }) {
   function handleNewTree(treeForm) {
     setTrees([...trees, treeForm]);
   }
-  console.log(pileId);
-  console.log(trees);
+
   return (
     <>
       <GlobalStyles />

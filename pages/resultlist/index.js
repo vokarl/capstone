@@ -1,9 +1,11 @@
 export default function SeparatePage({ pileId, trees }) {
   return (
     <>
-      {trees.map((tree) => (
-        <li key={tree.treeId}>Polter ID: {tree.treeId}</li>
-      ))}
+      <ul>
+        {trees.map((tree) => (
+          <li key={tree.treeId}>Polter ID: {tree.treeId}</li>
+        ))}
+      </ul>
     </>
   );
 }
