@@ -41,7 +41,7 @@ const StyledHeading = styled.h1`
   margin: auto;
 `;
 const StyledDiv = styled.div`
-  font-size: x-large;
+  font-size: medium;
   display: flex;
   flex-direction: column;
   align-items: center;

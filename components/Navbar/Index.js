@@ -44,8 +44,12 @@ const StyledNav = styled.nav`
 `;
 const StyledLinkCard = styled.div`
   background-color: lightgrey;
-  border-radius: 2rem;
-  padding: 1rem;
-  margin: 0 1rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 1.3rem;
+  padding: 0.4rem 2rem;
+  margin: 1.4rem 1.3rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  box-shadow: 0rem 0.4rem 1rem rgba(0, 0, 0, 0.1);
+  width: fit-content;
 `;

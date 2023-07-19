@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
   background: #f2f2f2;
   color: #333;
   font-family:  sans-serif;
+  font-size: medium;
 
 }
     a {
