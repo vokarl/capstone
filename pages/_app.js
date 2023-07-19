@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout/Index";
 import GlobalStyles from "../styles";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -17,14 +18,15 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyles />
-
-      <Component
-        {...pageProps}
-        onRandomId={generateRandomId}
-        pileId={pileId}
-        onNewTree={handleNewTree}
-        trees={trees}
-      />
+      <Layout>
+        <Component
+          {...pageProps}
+          onRandomId={generateRandomId}
+          pileId={pileId}
+          onNewTree={handleNewTree}
+          trees={trees}
+        />
+      </Layout>
     </>
   );
 }

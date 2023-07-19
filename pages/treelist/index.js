@@ -17,7 +17,7 @@ const treeTypes = [
 export default function TreeType() {
   return (
     <>
-      <Heading>Baumsortenwahl</Heading>
+      <StyledHeading>Baumsortenwahl</StyledHeading>
       <StyledDiv>
         {treeTypes.map((treeType) => (
           <Link key={treeType} href={`/sortinglist/${treeType.toLowerCase()}`}>
@@ -34,4 +34,10 @@ const StyledDiv = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-top: 4rem;
+`;
+const StyledHeading = styled.h1`
+  text-align: center;
+  color: yellowgreen;
+  background-color: rgb(54, 89, 0);
+  margin: auto;
 `;
