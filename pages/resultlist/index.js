@@ -1,11 +1,23 @@
-export default function SeparatePage({ pileId, trees }) {
+import styled from "styled-components";
+
+export default function ResultPage({ pileId, trees }) {
   return (
     <>
-      <ul>
+      <StyledP>Polter Id: {pileId}</StyledP>
+      <StyledList>
         {trees.map((tree) => (
-          <li key={tree.treeId}>Polter ID: {tree.treeId}</li>
+          <ListItem key={tree.treeId}>Baum Id: {tree.treeId}</ListItem>
         ))}
-      </ul>
+      </StyledList>
     </>
   );
 }
+const StyledP = styled.p`
+  color: grey;
+`;
+const StyledList = styled.ul`
+  color: grey;
+`;
+const ListItem = styled.li`
+  list-style-type: none;
+`;
