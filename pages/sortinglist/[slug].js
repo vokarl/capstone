@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import RenderInputField from "@/components/Form/Index";
-import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const treeData = [
   {
@@ -108,16 +108,22 @@ const treeData = [
   },
 ];
 
-export default function DynamicForm() {
+export default function DynamicForm({ pileId, onNewTree }) {
   const router = useRouter();
   const treeFromSlug = router.query.slug;
-  const [recentTreeData, setRecentTreeData] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    setRecentTreeData(data);
+    const treeId = uuidv4();
+    const recentTreeData = {
+      pileId: pileId,
+      treeId,
+      treespecies: router.query.slug,
+      ...data,
+    };
+    onNewTree(recentTreeData);
   }
 
   if (!treeFromSlug) {
@@ -130,7 +136,7 @@ export default function DynamicForm() {
   return (
     <>
       <Heading>Sortierung</Heading>
-      <StyledLink href="/treelist">← zurück</StyledLink>
+      <StyledZurückLink href="/treelist">← zurück</StyledZurückLink>
       <StyledForm onSubmit={handleSubmit}>
         {attributes.auswuechse && <RenderInputField label="Auswüchse?" />}
         {attributes.wasserreiser && <RenderInputField label="Wasserreiser?" />}
@@ -173,19 +179,9 @@ export default function DynamicForm() {
         )}
         {attributes.abholzigkeit && <RenderInputField label="Abholzigkeit?" />}
         {attributes.verfärbung && <RenderInputField label="Verfärbung?" />}
-        <StyledButton>Stamm hinzufügen</StyledButton>
+        <StyledButton type="submit">Stamm hinzufügen</StyledButton>
+        <StyledLink href={`/resultlist`}>result</StyledLink>
       </StyledForm>
-
-      <StyledList>
-        <h2>Ergebnisliste:</h2>
-        {Object.entries(recentTreeData)
-          .filter(([key]) => !key.includes("attributes"))
-          .map(([key, value]) => (
-            <ListItem key={key}>
-              {key}: {value}
-            </ListItem>
-          ))}
-      </StyledList>
     </>
   );
 }
@@ -194,9 +190,8 @@ const Heading = styled.h1`
   background-color: darkgreen;
 `;
 
-const StyledLink = styled.a`
+const StyledZurückLink = styled.a`
   display: flex;
-
   margin-top: 5rem;
   margin-bottom: 5rem;
   color: green;
@@ -216,16 +211,10 @@ const StyledButton = styled.button`
   background-color: darkorange;
   padding: 1rem;
   font-size: 20px;
-
   align-content: flex-center;
 `;
-const StyledList = styled.ul`
-  padding: 0;
-  margin: 3rem;
-`;
-
-const ListItem = styled.li`
-  color: blue;
-  list-style-type: circle;
-  margin: 1rem;
+const StyledLink = styled(Link)`
+  display: flex;
+  margin-top: 5rem;
+  color: green;
 `;
