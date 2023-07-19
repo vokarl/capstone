@@ -136,6 +136,7 @@ export default function DynamicForm({ pileId, onNewTree }) {
   return (
     <>
       <StyledHeading>Sortierung</StyledHeading>
+      <StyledZurückLink href="/treelist">← zurück</StyledZurückLink>
       <StyledForm onSubmit={handleSubmit}>
         {attributes.auswuechse && <RenderInputField label="Auswüchse?" />}
         {attributes.wasserreiser && <RenderInputField label="Wasserreiser?" />}
@@ -179,7 +180,6 @@ export default function DynamicForm({ pileId, onNewTree }) {
         {attributes.abholzigkeit && <RenderInputField label="Abholzigkeit?" />}
         {attributes.verfärbung && <RenderInputField label="Verfärbung?" />}
         <StyledButton type="submit">Stamm hinzufügen</StyledButton>
-        <StyledLink href={`/resultlist`}>result</StyledLink>
       </StyledForm>
     </>
   );
@@ -189,6 +189,13 @@ const StyledHeading = styled.h1`
   color: yellowgreen;
   background-color: rgb(54, 89, 0);
   margin: auto;
+`;
+
+const StyledZurückLink = styled.a`
+  display: flex;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  color: green;
 `;
 
 const StyledForm = styled.form`
@@ -206,9 +213,4 @@ const StyledButton = styled.button`
   padding: 1rem;
   font-size: 20px;
   align-content: flex-center;
-`;
-const StyledLink = styled(Link)`
-  display: flex;
-  margin-top: 5rem;
-  color: green;
 `;

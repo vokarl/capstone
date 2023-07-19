@@ -9,16 +9,12 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
  
-
   body {
-    margin: 0;
-    font-family:  sans-serif;
-    font-weight: 300;
-    width: 100vw;
-    height: 100vh;
-    color: white;
-    background-color: rgb(30,40,40);
-    }
+  background: #f2f2f2;
+  color: #333;
+  font-family:  sans-serif;
+
+}
     a {
   color: #333;
   text-decoration: none;
