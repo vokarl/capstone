@@ -17,21 +17,49 @@ const treeTypes = [
 export default function TreeType() {
   return (
     <>
-      <Heading>Baumsortenwahl</Heading>
+      <StyledHeading>Baumsortenwahl</StyledHeading>
       <StyledDiv>
-        {treeTypes.map((treeType) => (
-          <Link key={treeType} href={`/sortinglist/${treeType.toLowerCase()}`}>
-            {treeType}
-          </Link>
-        ))}
+        <CardContainer>
+          {treeTypes.map((treeType) => (
+            <Link
+              key={treeType}
+              href={`/sortinglist/${treeType.toLowerCase()}`}
+            >
+              <StyledLinkCard> {treeType}</StyledLinkCard>
+            </Link>
+          ))}
+        </CardContainer>
       </StyledDiv>
     </>
   );
 }
 
+const StyledHeading = styled.h1`
+  text-align: center;
+  color: yellowgreen;
+  background-color: rgb(54, 89, 0);
+  margin: auto;
+`;
 const StyledDiv = styled.div`
+  font-size: medium;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 40rem;
+`;
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 3rem;
   gap: 2rem;
-  margin-top: 4rem;
+`;
+const StyledLinkCard = styled.div`
+  background-color: #fff;
+  border: 0.1rem solid #ccc;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0rem 0.4rem 1rem rgba(0, 0, 0, 0.1);
+  width: fit-content;
 `;

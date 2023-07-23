@@ -8,23 +8,17 @@ const GlobalStyles = createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
-  H1{
-    margin: 0;
-    font-family:  sans-serif;
-    font-weight: 100;
-  }
-
+ 
   body {
-    margin: 0;
-    font-family:  sans-serif;
-    font-weight: 300;
-    
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(30,40,40);
-    
-    
-  }
+  background: #f2f2f2;
+  color: #333;
+  font-family:  sans-serif;
+  font-size: medium;
 
+}
+    a {
+  color: #333;
+  text-decoration: none;
+}
 `;
 export default GlobalStyles;
