@@ -1,24 +1,15 @@
-# New Project
+# log sorter
+<br>
 
-This project was created from the neue fische next template.
+Log sorter is an forestry app that helps sort tree logs based on specific sorting criteria. The sorted trees are categorized into four different quality levels based on the sorting criteria and organized by tree species and pile batch.
+<br>
+![Screenshot 2023-08-08 at 15-06-16 Screenshot](https://github.com/vokarl/capstone/assets/131611235/6b7d621c-a425-4ff3-8c4a-5421eccefefe)
+---
+<br>
 
-## Development
-
-### CodeSandbox
-
-Select the "Browser" tab to view this project. If this project contains tests, select the "Tests" tab to check your progress.
-
-> 💡 Please note that Next.js support on CodeSandbox is not great.
-
-### Local development
-
-To run project commands locally, you need to install the dependencies using `npm i` first.
-
-You can then use the following commands:
-
-- `npm run dev` to start the development server
-- `npm run build` to create a production build
-- `npm run start` to start the production build
-- `npm run test` to run the tests in watch mode (if available)
-
-> 💡 This project requires a bundler. You can use `npm run dev` to start the development server. You can then view the project in the browser at `http://localhost:3000`. The Live Preview Extension for Visual Studio Code will **not** work for this project.
+##tech stack
+---
+<br>
+* React
+* Next
+* Styled Components
